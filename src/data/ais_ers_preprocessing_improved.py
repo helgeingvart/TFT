@@ -1032,8 +1032,9 @@ if __name__ == "__main__":
         args.ports_csv = os.path.join(args.base_dir, "ports.csv")
 
     base_dir = os.path.abspath(args.base_dir)
-    ais_dir = os.path.join(base_dir, args.year)
-    ers_dir = os.path.join(base_dir, "ers", args.year)
+    ais_dir = os.path.join(base_dir, "AIS", args.year)
+    ers_dir = os.path.join(base_dir, "ERS", args.year)
+
 
     ais_files = []
     if os.path.exists(ais_dir):
