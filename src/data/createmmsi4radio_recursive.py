@@ -3,7 +3,7 @@ import os
 
 import pandas as pd
 from tqdm import tqdm
-from radio2mmsi import resolve_radio
+from kystdatahuset_api_radio2mmsi import resolve_radio
 import argparse
 
 
