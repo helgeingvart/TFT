@@ -31,7 +31,7 @@ def store_msgs(messages: list, filename: str) -> None:
     """
     Append to existing CSV of the other messages, or create a new file
     """
-    df = pd.DataFrame(messages)
+    df = pd.DataFrame(messages).iloc[:,:10]
     df.columns = ["mmsi", "date", "long", "lat", "cog", "sog", "msg_num", "speed(kmh)", "sec_prev_point", "dist_prev_point"]
     df = df.loc[:, ["mmsi", "date", "long", "lat", "cog", "sog"]]
     df = filter_df(df)
@@ -46,10 +46,11 @@ def get_ais(filename):
     # Period to fetch AIS messages between
     # Fetching is done in 1 hour intervals
     # or else it might not return any data
-    starttime = datetime(2024,1,1)
-    while starttime < datetime(2025,1,1):
+    starttime = datetime(2023,1,1, 00)
+    while starttime < datetime(2024,1,1):
         messages = []
-        stoptime = starttime + timedelta(minutes=59, seconds=59)
+        # stoptime = starttime + timedelta(minutes=59, seconds=59)
+        stoptime = starttime + timedelta(minutes=60, seconds=60)
         # Set Region of Interest, period to fetch AIS messages for, and minimum speed of messages
         body = {
             "geom": "POLYGON((31.5 69.2, 31.5 73.0, 13.0 73.0, 13.0 69.2, 31.5 69.2))",
