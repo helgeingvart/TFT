@@ -42,16 +42,14 @@ def get_ais(filename):
     Fetch AIS messages from the public API
     """
     url = "https://kystdatahuset.no/ws/api/ais/positions/within-geom-time"
-    # url = "https://kystdatahuset.no/ws/api/ais/positions/within-bbox-time"
 
     # Period to fetch AIS messages between
     # Fetching is done in 1 hour intervals
     # or else it might not return any data
-    starttime = datetime(2024,1,1, 23)
+    starttime = datetime(2024,1,1)
     while starttime < datetime(2025,1,1):
         messages = []
-        # stoptime = starttime + timedelta(minutes=59, seconds=59)
-        stoptime = starttime + timedelta(seconds=59)
+        stoptime = starttime + timedelta(minutes=59, seconds=59)
         # Set Region of Interest, period to fetch AIS messages for, and minimum speed of messages
         body = {
             "geom": "POLYGON((31.5 69.2, 31.5 73.0, 13.0 73.0, 13.0 69.2, 31.5 69.2))",
@@ -59,15 +57,6 @@ def get_ais(filename):
             "end": stoptime.strftime("%Y-%m-%dT%H:%M:%S"),
             "minSpeed": 0.5
         }
-        # print(starttime.strftime("%Y%m%d%H%M%S"))
-        # print(stoptime.strftime("%Y%m%d%H%M%S"))
-        #
-        # body = {
-        #     "bbox": "13.0, 69.2, 31.5, 73.0",
-        #     "start": starttime.strftime("%Y%m%d%H%M%S"),
-        #     "end": stoptime.strftime("%Y%m%d%H%M%S"),
-        #     "minSpeed": 0.5
-        # }
 
         try:
             r = requests.post(url, json=body)
@@ -91,8 +80,7 @@ def get_ais(filename):
 
             # Delay to avoid stressing the API too much
             sleep(7)
-            # starttime += timedelta(hours=1)
-            starttime += timedelta(minutes=1)
+            starttime += timedelta(hours=1)
 
 
 if __name__ == "__main__":

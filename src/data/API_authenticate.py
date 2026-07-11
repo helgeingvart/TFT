@@ -10,8 +10,8 @@ headersList = {
 }
 
 payload = json.dumps({
-  "username": "helgeingvart@gmail.com",
-  "password": """izX!Pa8r3Rka8UE"""
+  "username": "",
+  "password": """"""
 })
 
 response = requests.request("POST", reqUrl, data=payload,  headers=headersList)
