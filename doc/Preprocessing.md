@@ -9,7 +9,7 @@ top directory of the checked out code, and \$DATA the place you store the data
 3. Now, work in the directory $TOP/src/data
 4. Initially, generate a token for the API access to kystdatahuset by inserting the username/password in authenticate.py
 5. Put the token in radio2mmsi.py right after "Authorization": "Bearer
-6. Run the createmmsi4radio.py \$DATA/ERS to generate the file radio2mmsi.csv
+6. Run the createmmsi4radio_recursive.py \$DATA/ERS to generate the file radio2mmsi.csv
 7. Create a directory $DATA/csv
 8. Create the merged ERS file merge.csv per year using the script preprocess_ers.py and put the produced file in the AIS catalogue for that year
 9. Run this command: ```python3 ais_ers_preprocessing.py $DATA --radio2mmsi ./radio2mmsi.csv --ports-csv ./ports.csv --csv-dir $DATA/csv <YEAR>.``` You will have to run the command for each year of data you have available.
