@@ -3,7 +3,7 @@
 I reccommend using uv for preparing the virtual env using these commands in the top directory:
 ```
 uv venv
-uv pip sync requirements.txt
+uv pip install -r requirements.txt
 . .venv/bin/activate
 ```
 
