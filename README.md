@@ -6,7 +6,8 @@ uv venv
 uv pip install -r requirements.txt
 . .venv/bin/activate
 ```
-
+# Preprocessing
+There is a separate README for this in the src/data directory
 
 # Training
 
