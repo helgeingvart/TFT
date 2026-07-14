@@ -829,11 +829,7 @@ def match_and_insert(ais_files, ers_dir, year,
                      ports_csv_path="data/ports.csv", limit=None):
     print("[*] Loading datasets")
 
-    # ERS merged.csv path (same as old script ers argument)
-    year_dir = os.path.dirname(ais_files[0]) if ais_files else None
-    if not year_dir:
-        raise ValueError("Could not determine year_dir from AIS files")
-    ers_csv_path = os.path.join(year_dir, "merged.csv")
+    ers_csv_path = os.path.join(ers_dir, "merged.csv")
     if not os.path.exists(ers_csv_path):
         raise FileNotFoundError(f"ERS merged file not found: {ers_csv_path}")
 

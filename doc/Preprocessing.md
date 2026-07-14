@@ -13,6 +13,6 @@ top directory of the checked out code, and ```$DATA``` the place you store the d
 
 ## Steps for preprocessing
 1. Create a directory ```$DATA/csv```
-2. Create the merged ERS file merge.csv per year using the script ```preprocess_ers_Lovland.py``` and put the produced file in the ```$DATA/AIS/<year>``` catalogue for that year
+2. Create the merged ERS file merge.csv per year using the script ```merge_ers_Lovland.py``` and put the produced file in the ```$DATA/ERS/<year>``` catalogue for that year
 3. Run this command: ```python ais_ers_preprocessing.py $DATA --radio2mmsi ./radio2mmsi.csv --ports-csv ./ports.csv --csv-dir $DATA/csv <YEAR>.``` You will have to run the command for each year of data you have available.
 

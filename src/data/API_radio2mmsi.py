@@ -7,10 +7,10 @@ def resolve_radio(radio: str) -> int:
     url = f"https://kystdatahuset.no/ws/api/ship/combined/callsign/{radio}"
 
     headersList = {
- "User-Agent": "Your Client (https://your-client.com)",
- "Content-Type": "application/json",
- "Authorization": "Bearer "
-}
+    "User-Agent": "Your Client (https://your-client.com)",
+    "Content-Type": "application/json",
+    "Authorization": "Bearer "
+    }
 
 
     r = requests.get(url, headers=headersList)
